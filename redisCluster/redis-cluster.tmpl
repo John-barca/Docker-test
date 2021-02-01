@@ -1,0 +1,25 @@
+# redis 端口
+port ${port}
+# 关闭保护模式
+protected-mode no
+# 开启集群
+cluster-enabled yes
+# 集群节点配置
+cluster-config-file nodes.conf
+# 超时
+cluster-node-timeout 5000
+# 集群节点IP host模式为宿主机IP
+cluster-announce-ip 47.96.83.45
+# 集群节点端口 7001 - 7006
+cluster-announce-port ${port}
+cluster-announce-bus-port 1${PORT}
+# 开启appendonly 备份模式
+appendonly yes
+# 每秒备份
+apendfsync everysec
+# 对 aof 文件进行压缩时，是否执行同步操作
+no-appendonlysync-on-rewrite no
+# 当目前 aof 文件大小超过上一次重写时的 aof 文件大小的100%时会再次进行重写
+auto-aof-rewrite-percentage 100
+# 重写的aof文件的大小最小值 默认 64mb
+auto-aof-rewrite-min-size 64mb
